@@ -59,6 +59,9 @@ def get_access_token(grant_type, client_id, client_secret, redirect_uri,
         'redirect_uri': redirect_uri,
     }
 
+    if settings.CANVAS_OAUTH_REPLACE_TOKENS:
+        post_params['replace_tokens'] = 1
+
     # Need to add in code or refresh_token, depending on the grant_type
     if grant_type == 'authorization_code':
         post_params['code'] = code
@@ -84,5 +87,4 @@ def get_access_token(grant_type, client_id, client_secret, redirect_uri,
     refresh_token = None
     if 'refresh_token' in response_data:
         refresh_token = response_data['refresh_token']
-
     return (access_token, expires, refresh_token)
