@@ -89,6 +89,8 @@ CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER:
 CANVAS_OAUTH_ERROR_TEMPLATE:
     (optional) Specify a template for rendering errors that occur in the authorization flow. Defaults to ``oauth_error.html``.
 
+CANVAS_OAUTH_REPLACE_TOKENS:
+    (optional) Tell Canvas to replace any tokens issued by this app for the given user. Defaults to False.
 
 
 Usage
